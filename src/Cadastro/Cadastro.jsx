@@ -10,7 +10,7 @@ function Cadastro() {
   const [formData, setFormData] = useState({
   name: "",
   email: "",
-  Date: "",
+  date: "",
   password: "",
 });
 
@@ -33,8 +33,8 @@ const validate = () => {
   }
 
   // Validação da data de nascimento
-  if (!formData.Date) {
-    newErrors.Date = "Data de nascimento é obrigatória.";
+  if (!formData.date) {
+    newErrors.date = "Data de nascimento é obrigatória.";
   }
 
   // Validação da senha
@@ -58,7 +58,7 @@ const handleSubmit = (event) => {
   if (validate()) {
     alert("Conta criada com sucesso!");
     // Enviar dados para o servidor ou limpar o formulário.
-    setFormData({ name: "", email: "", Date: "", password: "" });
+    setFormData({ name: "", email: "", date: "", password: "" });
   }
 };
 
@@ -69,17 +69,17 @@ const handleChange = (e) => {
 
 
   return (
-    <div className='Container'>
+    <div className="container">
             <h1>Junte-se ao AlgoRead</h1>
             <form onSubmit={handleSubmit}>
 
             <div className="form-group">
-                <label>Nome</label>
+                <label htmlFor="name">Nome</label>
                 <input 
-                type="Name"
+                type="name"
                 id="name"
                 name="name" 
-                placeholder='Nome'
+                placeholder='Digite seu nome completo'
                 value={formData.name}
                 onChange={handleChange}
                 className={errors.name ? "error" : ""} 
@@ -92,12 +92,12 @@ const handleChange = (e) => {
             </div>
 
             <div className="form-group">
-                <label>E-mail</label>
+                <label htmlFor="email">E-mail</label>
                 <input 
                 type="email" 
                 id="email"
                 name="email"
-                placeholder='E-mail'
+                placeholder='Insira seu e-mail'
                 value={formData.email}
                 onChange={handleChange}
                 className={errors.email ? "error" : ""} 
@@ -109,29 +109,29 @@ const handleChange = (e) => {
             </div>
           
             <div className="form-group">
-                <label>Data de Nascimento</label>
+                <label htmlFor="date">Data de Nascimento</label>
                 <input 
-                type="Date"
-                id="Date"
-                name="Date"
-                value={formData.birthDate}
+                type="date"
+                id="date"
+                name="date"
+                value={formData.date}
                 onChange={handleChange}
-                className={errors.birthDate ? "error" : ""}
+                className={errors.date ? "error" : ""}
                 
                 />
-                {errors.birthDate && <p className="error-message">{errors.birthDate}</p>}
+                {errors.date && <p className="error-message">{errors.date}</p>}
             </div>
 
           <div className="form-group">
-                <label>Senha</label>
+                <label htmlFor="password">Senha</label>
                <input 
                type="password" 
                id="password"
                name="password"
-               placeholder='Senha'
+               placeholder='Crie uma senha'
                value={formData.password}
-              onChange={handleChange}
-              className={errors.password ? "error" : ""}
+               onChange={handleChange}
+               className={errors.password ? "error" : ""}
                
                />
                {errors.password && <p className="error-message">{errors.password}</p>}

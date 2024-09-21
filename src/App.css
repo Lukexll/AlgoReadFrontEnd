@@ -1,0 +1,18 @@
+*{
+margin: 0;
+padding: 0;
+font-family: Crimson Text;
+box-sizing: border-box;
+text-shadow: #060556 1px ;
+font-family:  Crimson Text;
+
+}
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(214, 228, 247, 1);
+
+
+}
