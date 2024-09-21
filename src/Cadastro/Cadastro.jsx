@@ -87,7 +87,7 @@ const handleChange = (e) => {
                 />
                 {errors.name && <p className="error-message">{errors.name}</p>}
 
-                <FaUser className="icone"/>
+                <FaUser className="icon"/>
 
             </div>
 
@@ -105,7 +105,7 @@ const handleChange = (e) => {
                 />
                 {errors.email && <p className="error-message">{errors.email}</p>}
 
-                <BsEnvelope className="icone"/>
+                <BsEnvelope className="icon"/>
             </div>
           
             <div className="form-group">
@@ -135,7 +135,7 @@ const handleChange = (e) => {
                
                />
                {errors.password && <p className="error-message">{errors.password}</p>}
-               <FaLock className="icone"/>
+               <FaLock className="icon"/>
 
             </div>
             <button type="submit">Cadastrar</button>
