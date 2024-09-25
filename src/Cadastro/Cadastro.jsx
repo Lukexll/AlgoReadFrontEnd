@@ -17,7 +17,7 @@ function Cadastro() {
 const [errors, setErrors] = useState({});
 
 const validate = () => {
-  let newErrors = {};
+  const newErrors = {};
   
   // Validação do campo nome
   if (!formData.name.trim()) {
@@ -59,6 +59,7 @@ const handleSubmit = (event) => {
     alert("Conta criada com sucesso!");
     // Enviar dados para o servidor ou limpar o formulário.
     setFormData({ name: "", email: "", date: "", password: "" });
+    setErrors({});
   }
 };
 
@@ -135,10 +136,12 @@ const handleChange = (e) => {
                
                />
                {errors.password && <p className="error-message">{errors.password}</p>}
+
                <FaLock className="icon"/>
 
             </div>
             <button type="submit">Cadastrar</button>
+            
             <div className="login-redirect">
                     <span>Já tem uma conta? <a href="/login">Entrar</a></span>
                 </div>
