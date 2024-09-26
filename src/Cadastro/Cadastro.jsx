@@ -1,8 +1,7 @@
 import { FaUser, FaLock } from "react-icons/fa";
 import { BsEnvelope } from "react-icons/bs";
-
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
-
 import "./Cadastro.css";
 
 function Cadastro() { 
@@ -129,7 +128,7 @@ const handleChange = (e) => {
                type="password" 
                id="password"
                name="password"
-               placeholder='Crie uma senha'
+               placeholder="Crie uma senha"
                value={formData.password}
                onChange={handleChange}
                className={errors.password ? "error" : ""}
@@ -143,7 +142,8 @@ const handleChange = (e) => {
             <button type="submit">Cadastrar</button>
             
             <div className="login-redirect">
-                    <span>Já tem uma conta? <a href="/login">Entrar</a></span>
+                    <span>Já tem uma conta? <Linki to="/login">Entrar</Linki></span>
+                   
                 </div>
         </form>
       
