@@ -1,6 +1,6 @@
 import { FaUser, FaLock } from "react-icons/fa";
 import { BsEnvelope } from "react-icons/bs";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import { useState } from "react";
 import "./Cadastro.css";
 
@@ -142,7 +142,7 @@ const handleChange = (e) => {
             <button type="submit">Cadastrar</button>
             
             <div className="login-redirect">
-                    <span>Já tem uma conta? <Linki to="/login">Entrar</Linki></span>
+                    <span>Já tem uma conta? <Link to="/login">Entrar</Link></span>
                    
                 </div>
         </form>
