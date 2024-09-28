@@ -31,8 +31,8 @@ const Login = () => {
 
 
 return (
-    <div className="container">
-        <h1>Bem Vindo ao AlgoRead</h1>
+    <div className="login-container">
+        <h2>Bem Vindo ao AlgoRead</h2>
         <form onSubmit={handleSubmit}>
 
     <div className="login-form">
@@ -66,7 +66,7 @@ return (
 
         <div className="extra-options">
          <a href="#">Esqueceu a senha?</a>
-         /</div>
+         </div>
 
         <button type="submit">Entrar</button>
 
