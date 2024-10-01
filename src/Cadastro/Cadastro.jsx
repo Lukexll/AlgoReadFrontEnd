@@ -79,6 +79,7 @@ const handleChange = (e) => {
                 type="name"
                 id="name"
                 name="name" 
+                autoComplete="email"
                 placeholder='Digite seu nome completo'
                 value={formData.name}
                 onChange={handleChange}

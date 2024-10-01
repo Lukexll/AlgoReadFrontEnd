@@ -65,7 +65,7 @@ return (
         </div>
 
         <div className="extra-options">
-         <a href="#">Esqueceu a senha?</a>
+        <Link to="/esqueceusenha">Esqueceu a senha?</Link>
          </div>
 
         <button type="submit">Entrar</button>
