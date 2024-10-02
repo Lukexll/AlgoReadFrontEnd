@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './EsqueceuSenha.css'; // Para o estilo
-import { BsEnvelope } from "react-icons/bs";
+
 
 
 const EsqueceuSenha = () => {
@@ -31,11 +31,11 @@ const EsqueceuSenha = () => {
 
   return (
     <div className="redefinir-container">
-      <h1>Redefinir sua Senha</h1>
+      <h3>Redefinir sua Senha</h3>
       <p>Insira seu endereço de e-mail associado a sua conta para receber um link de redefinição de senha.Caso não encontre o e-mail, verifique a pasta de spam ou lixo eletrônico.</p>
 
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-senha">
           <label htmlFor="email">E-mail:</label>
           <input
             type="email"
@@ -48,7 +48,7 @@ const EsqueceuSenha = () => {
           />
           {error && <p className="error-message">{error}</p>}
 
-           <BsEnvelope className="icon"/>
+          
           
         </div>
 
