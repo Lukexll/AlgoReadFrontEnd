@@ -19,11 +19,10 @@ const Login = () => {
 
     // Validação simples de campos
     if (!user || !password) {
-      setError('Usuário e senha são obrigatórios.');
+      alert('Usuário e senha são obrigatórios.');
       return;
     }
-
-   
+    
 
     alert('Login realizado com sucesso!');
   };

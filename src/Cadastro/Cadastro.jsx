@@ -40,8 +40,8 @@ const validate = () => {
   const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
   if (!formData.password) {
     newErrors.password = "Senha é obrigatória.";
-  } else if (formData.password.length < 6) {
-    newErrors.password = "Senha deve ter no mínimo 6 caracteres.";
+  } else if (formData.password.length < 8) {
+    newErrors.password = "Senha deve ter no mínimo 8 caracteres.";
   } else if (!passwordRegex.test(formData.password)) {
     newErrors.password = "Senha deve possuir pelo menos uma letra maiúscula, um número e um símbolo.";
   }

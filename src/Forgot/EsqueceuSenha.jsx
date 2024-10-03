@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './EsqueceuSenha.css'; // Para o estilo
+import { BsEnvelope } from "react-icons/bs";
 
 
 
@@ -47,6 +48,9 @@ const EsqueceuSenha = () => {
 
           />
           {error && <p className="error-message">{error}</p>}
+
+          <BsEnvelope className="icone"/>
+
 
           
           
