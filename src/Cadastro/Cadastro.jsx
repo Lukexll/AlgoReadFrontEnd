@@ -1,155 +1,146 @@
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 import { BsEnvelope } from "react-icons/bs";
 import { Link  } from 'react-router-dom';
 import { useState } from "react";
 import "./Cadastro.css";
 
 function Cadastro() { 
-
   const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  date: "",
-  password: "",
-});
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState("");
 
-const validate = () => {
-  const newErrors = {};
-  
-  // Validação do campo nome
-  if (!formData.name.trim()) {
-    newErrors.name = "Nome é obrigatório.";
-  }
+  const validate = () => {
+    const newErrors = {};
 
-  // Validação do campo email
-  const emailRegex = /\S+@\S+\.\S+/;
-  if (!formData.email) {
-    newErrors.email = "Email é obrigatório.";
-  } else if (!emailRegex.test(formData.email)) {
-    newErrors.email = "Email inválido.";
-  }
+    // Validação do campo email
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!formData.email) {
+      newErrors.email = "Email é obrigatório.";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Email inválido.";
+    }
 
-  // Validação da data de nascimento
-  if (!formData.date) {
-    newErrors.date = "Data de nascimento é obrigatória.";
-  }
+    // Validação da senha
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
+    if (!formData.password) {
+      newErrors.password = "Senha é obrigatória.";
+    } else if (formData.password.length < 8) {
+      newErrors.password = "Senha deve ter no mínimo 8 caracteres.";
+    } else if (!passwordRegex.test(formData.password)) {
+      newErrors.password = "Senha deve possuir pelo menos uma letra maiúscula, um número e um símbolo.";
+    }
 
-  // Validação da senha
-  const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
-  if (!formData.password) {
-    newErrors.password = "Senha é obrigatória.";
-  } else if (formData.password.length < 8) {
-    newErrors.password = "Senha deve ter no mínimo 8 caracteres.";
-  } else if (!passwordRegex.test(formData.password)) {
-    newErrors.password = "Senha deve possuir pelo menos uma letra maiúscula, um número e um símbolo.";
-  }
+     // Validação da confirmação de senha
+     if (formData.confirmPassword !== formData.password) {
+      newErrors.confirmPassword = "As senhas não coincidem.";
+    }
 
-  setErrors(newErrors);
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-  return Object.keys(newErrors).length === 0;
-};
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  
-  if (validate()) {
-    alert("Conta criada com sucesso!");
-    // Enviar dados para o servidor ou limpar o formulário.
-    setFormData({ name: "", email: "", date: "", password: "" });
-    setErrors({});
-  }
-};
+    if (!validate()) {
+      return;
+    }
 
-const handleChange = (e) => {
-  setFormData({ ...formData, [e.target.name]: e.target.value });
-};
+    try {
+      const response = await fetch('http://25.17.225.123:5152/createaccount', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
+      if (response.ok) {
+        alert("Conta criada com sucesso!");
+        setFormData({ email: "", password: "" });
+        setErrors({});
+        setServerError("");
+      } else {
+        const data = await response.json();
+        setServerError(data.message || "Erro ao criar a conta.");
+      }
+    } catch (error) {
+      setServerError("Erro ao se conectar com o servidor. Tente novamente mais tarde.");
+    }
+  };
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="container">
-            <h1>Junte-se ao AlgoRead</h1>
-            <form onSubmit={handleSubmit}>
+      <h1>Junte-se ao AlgoRead</h1>
+      <form onSubmit={handleSubmit}>
+        {serverError && <p className="error-message">{serverError}</p>}
 
-            <div className="form-group">
-                <label htmlFor="name">Nome</label>
-                <input 
-                type="name"
-                id="name"
-                name="name" 
-                autoComplete="email"
-                placeholder='Digite seu nome completo'
-                value={formData.name}
-                onChange={handleChange}
-                className={errors.name ? "error" : ""} 
+        <div className="form-group">
+          <label htmlFor="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Insira seu e-mail"
+            value={formData.email}
+            onChange={handleChange}
+            className={errors.email ? "error" : ""}
+          />
+          {errors.email && <p className="error-message">{errors.email}</p>}
+          <BsEnvelope className="icon"/>
+        </div>
 
-                />
-                {errors.name && <p className="error-message">{errors.name}</p>}
+        <div className="form-group">
+          <label htmlFor="password">Senha</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Crie uma senha"
+            value={formData.password}
+            onChange={handleChange}
+            className={errors.password ? "error" : ""}
+          />
+          {errors.password && <p className="error-message">{errors.password}</p>}
+          <FaLock className="icon"/>
+        </div>
 
-                <FaUser className="icon"/>
+        <div className="form-group">
+          <label htmlFor="confirmPassword">Confirmar Senha</label>  
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirme sua senha"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            className={errors.confirmPassword ? "error" : ""}
+          />
+          {errors.confirmPassword && <p className="error-message">{errors.confirmPassword}</p>}
+          <FaLock className="icon"/>
+        </div>
 
-            </div>
+        <button type="submit">Cadastrar</button>
 
-            <div className="form-group">
-                <label htmlFor="email">E-mail</label>
-                <input 
-                type="email" 
-                id="email"
-                name="email"
-                placeholder='Insira seu e-mail'
-                value={formData.email}
-                onChange={handleChange}
-                className={errors.email ? "error" : ""} 
-
-                />
-                {errors.email && <p className="error-message">{errors.email}</p>}
-
-                <BsEnvelope className="icon"/>
-            </div>
-          
-            <div className="form-group">
-                <label htmlFor="date">Data de Nascimento</label>
-                <input 
-                type="date"
-                id="date"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-                className={errors.date ? "error" : ""}
-                
-                />
-                {errors.date && <p className="error-message">{errors.date}</p>}
-            </div>
-
-          <div className="form-group">
-                <label htmlFor="password">Senha</label>
-               <input 
-               type="password" 
-               id="password"
-               name="password"
-               placeholder="Crie uma senha"
-               value={formData.password}
-               onChange={handleChange}
-               className={errors.password ? "error" : ""}
-               
-               />
-               {errors.password && <p className="error-message">{errors.password}</p>}
-
-               <FaLock className="icon"/>
-
-            </div>
-            <button type="submit">Cadastrar</button>
-            
-            <div className="login-redirect">
-                    <span>Já tem uma conta? <Link to="/login">Entrar</Link></span>
+        <div className="login-redirect">
+                <span>Já tem uma conta? <Link to="/login">Entrar</Link></span>
                    
                 </div>
-        </form>
-      
+
+
+
+      </form>
     </div>
-  )
+  );
 }
 
 export default Cadastro;
