@@ -32,7 +32,7 @@ function Cadastro() {
     } else if (formData.password.length < 8) {
       newErrors.password = "Senha deve ter no mínimo 8 caracteres.";
     } else if (!passwordRegex.test(formData.password)) {
-      newErrors.password = "Senha deve possuir pelo menos uma letra maiúscula, um número e um símbolo.";
+      newErrors.password = "Senha deve possuir pelo menos uma letra maiúscula, um símbolo e um número.";
     }
 
      // Validação da confirmação de senha
@@ -79,12 +79,12 @@ function Cadastro() {
   };
 
   return (
-    <div className="container">
+    <div className="container ">
       <h1>Junte-se ao AlgoRead</h1>
       <form onSubmit={handleSubmit}>
         {serverError && <p className="error-message">{serverError}</p>}
 
-        <div className="form-group">
+        <div className="form-group ">
           <label htmlFor="email">E-mail</label>
           <input
             type="email"
@@ -93,13 +93,15 @@ function Cadastro() {
             placeholder="Insira seu e-mail"
             value={formData.email}
             onChange={handleChange}
-            className={errors.email ? "error" : ""}
+            className={`form-input ${errors.email ? "error" : ""}`}
+           
           />
+
           {errors.email && <p className="error-message">{errors.email}</p>}
           <BsEnvelope className="icon"/>
         </div>
 
-        <div className="form-group">
+        <div className="form-group ">
           <label htmlFor="password">Senha</label>
           <input
             type="password"
@@ -108,13 +110,13 @@ function Cadastro() {
             placeholder="Crie uma senha"
             value={formData.password}
             onChange={handleChange}
-            className={errors.password ? "error" : ""}
+            className={`form-input ${errors.password ? "error" : ""}`}
           />
           {errors.password && <p className="error-message">{errors.password}</p>}
           <FaLock className="icon"/>
         </div>
 
-        <div className="form-group">
+        <div className="form-group ">
           <label htmlFor="confirmPassword">Confirmar Senha</label>  
           <input
             type="password"
@@ -123,7 +125,8 @@ function Cadastro() {
             placeholder="Confirme sua senha"
             value={formData.confirmPassword}
             onChange={handleChange}
-            className={errors.confirmPassword ? "error" : ""}
+            className={`form-input ${errors.confirmPassword ? "error" : ""}`}
+            
           />
           {errors.confirmPassword && <p className="error-message">{errors.confirmPassword}</p>}
           <FaLock className="icon"/>

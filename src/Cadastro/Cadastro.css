@@ -104,7 +104,8 @@
     margin-top: 5px;
    
   }
-  input .error{
-    border: 2px solid red;
-    background-color: #ffe6e6;
+
+.form-input.error {
+    border:  1px solid red;
+    background-color: #ffe6e6; 
   }
