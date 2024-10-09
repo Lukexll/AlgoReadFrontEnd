@@ -1,0 +1,37 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color:  rgba(214, 228, 247, 1);;
+    color: white;
+    border: 3px solid #F4EDED;
+   
+    
+
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #060556;
+  }
+  
+  .navbar-right {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav-button {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #060556;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    transition: background-color 0.3s;
+  }
+  
+
+
+  

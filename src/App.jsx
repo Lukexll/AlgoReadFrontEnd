@@ -4,12 +4,17 @@ import Login from './Login/Login';
 import Cadastro from './Cadastro/Cadastro';
 import EsqueceuSenha from './Forgot/EsqueceuSenha';
 import ChangePassword from './ModificarSenha/ChangePassword';
+import Navbar from './Navbar/Navbar';
+
+
+
 
 function App() {
 
   return (
     <Router>
       <div className="App">
+        <Navbar/>
         <Routes>
           <Route path="cadastro" element={<Cadastro />} />
           <Route path="login" element={<Login />} />
