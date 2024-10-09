@@ -51,7 +51,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h2>Bem Vindo ao AlgoRead</h2>
+      <h2>Bem-Vindo ao AlgoRead</h2>
       <form onSubmit={handleSubmit}>
         {serverError && <p className="error-message">{serverError}</p>}
         {errors && <p className="error-message">{errors}</p>}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './EsqueceuSenha.css'; // Para o estilo
+import './EsqueceuSenha.css'; 
 import { BsEnvelope } from "react-icons/bs";
 
 
