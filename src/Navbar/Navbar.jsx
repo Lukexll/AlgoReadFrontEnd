@@ -4,16 +4,23 @@ import './Navbar.css';
 
 const Navbar = () => {
   return (
+    <header className='header' >
+      <h1 className="logo">AlgoRead</h1>
 
-    <nav className="navbar">
-      <div className="navbar-left">
-        <h1 className="logo">AlgoRead</h1>
-      </div>
-      <div className="navbar-right">
-        <Link to="/login" className="nav-button">Entrar</Link>
-        <Link to="/cadastro" className="nav-button">Cadastre-se</Link>
-      </div>
+    <nav className="nagivation-navbar"> 
+       <a href="/login" className="nav-button">Entrar</a>
+       <a href="/cadastro" className="nav-button">Cadastre-se</a>
     </nav>
+       
+
+        
+      
+    
+       
+       
+       </header>
+      
+   
   );
 };
 

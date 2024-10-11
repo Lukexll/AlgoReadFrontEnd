@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaLock } from "react-icons/fa";
-import { BsEnvelope } from "react-icons/bs";
-import { Link } from 'react-router-dom'; 
+import { BsEnvelope  } from "react-icons/bs";
+import { Link, useNavigate } from 'react-router-dom'; 
 import './Login.css';
 
 const Login = () => {
@@ -9,6 +9,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [errors, setError] = useState('');
   const [serverError, setServerError] = useState('');
+
+  const navigate = useNavigate(); // Hook de navegação
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,9 +51,17 @@ const Login = () => {
     }
   };
 
+  const handleClose = () => {
+    navigate('/'); // Redireciona para a página inicial (ou outra página)
+};
+
   return (
     <div className="login-container">
+      <span className="close-button" onClick={handleClose}>
+                x {/* O &times; representa o símbolo de "X" */}
+            </span>
       <h2>Bem-Vindo ao AlgoRead</h2>
+      
       <form onSubmit={handleSubmit}>
         {serverError && <p className="error-message">{serverError}</p>}
         {errors && <p className="error-message">{errors}</p>}

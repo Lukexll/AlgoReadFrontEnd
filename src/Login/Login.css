@@ -109,4 +109,14 @@
 .error-message {
     color: red;
     margin-bottom: 1rem;
+}
+
+.close-button {
+   position: absolute;
+   top: 75px;
+   right: 540px;
+   cursor: pointer;
+   font-size: 25px;
+   color: #060556;
+
   }
