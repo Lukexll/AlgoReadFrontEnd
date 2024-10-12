@@ -1,6 +1,6 @@
 import { FaLock } from "react-icons/fa";
 import { BsEnvelope } from "react-icons/bs";
-import { Link  } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import "./Cadastro.css";
 
@@ -10,6 +10,8 @@ function Cadastro() {
     password: "",
     confirmPassword: "",
   });
+
+  const navigate = useNavigate(); // Hook de navegação
 
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState("");
@@ -78,8 +80,15 @@ function Cadastro() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleClose = () => {
+    navigate('/'); // Redireciona para a página inicial (ou outra página)
+  };
+
   return (
     <div className="container ">
+      <span className="button-close" onClick={handleClose}>
+                x 
+            </span>
       <h1>Junte-se ao AlgoRead</h1>
       <form onSubmit={handleSubmit}>
         {serverError && <p className="error-message">{serverError}</p>}

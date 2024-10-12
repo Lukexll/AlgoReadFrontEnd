@@ -6,6 +6,11 @@
     border-radius: 20px;
     border: 2px solid #060556;
     padding: 100px;
+    position: absolute;
+    top: 12%;
+    
+
+   
 
 }
 .container h1{
@@ -13,7 +18,7 @@
     font-size: 32px;
     color: #060556;
     position: fixed;
-    top: 15%;
+    top: 17%;
     margin: 0%;
    
     
@@ -108,4 +113,14 @@
 .form-input.error {
     border:  1px solid red;
     background-color: #ffe6e6; 
+  }
+
+  .container .button-close{
+    position: fixed;
+    top: 90px;
+    right: 540px;
+    cursor: pointer;
+    font-size: 25px;
+    color: #060556;
+    height: 45px;
   }

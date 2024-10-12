@@ -6,6 +6,9 @@
     border-radius: 20px;
     border: 2px solid #060556;
     padding: 100px;
+    position: absolute;
+    top: 12%;
+    
 
 }
 .login-container h2{
@@ -13,7 +16,7 @@
     font-size: 28px;
     color: #060556;
     position: fixed;
-    top: 18%;
+    top: 20%;
     margin: 0%;
    
    
@@ -112,8 +115,8 @@
 }
 
 .close-button {
-   position: absolute;
-   top: 75px;
+   position: fixed;
+   top: 90px;
    right: 540px;
    cursor: pointer;
    font-size: 25px;

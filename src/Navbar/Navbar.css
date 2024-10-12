@@ -24,10 +24,17 @@
 }
 .nagivation-navbar a{
   text-decoration: none;
-
+ 
+}
+.nav-home{
+  color: #060556;
+  font-size: 1.1em;
+  text-decoration: none;
+  
 
 
 }
+
 .nav-button {
   margin-left: 1rem;
   padding: 0.5rem 1rem;

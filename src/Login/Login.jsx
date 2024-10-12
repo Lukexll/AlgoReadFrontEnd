@@ -58,7 +58,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <span className="close-button" onClick={handleClose}>
-                x {/* O &times; representa o símbolo de "X" */}
+                x 
             </span>
       <h2>Bem-Vindo ao AlgoRead</h2>
       

@@ -58,6 +58,7 @@
     color: black;
     padding: 20px 10px;
   }
+  
   .form-senha label{
     color: #060556;
     font-size: 18px;
@@ -76,4 +77,7 @@
     color: black;
     pointer-events: none;
     transform: translateY(-100%);
+  }
+  p{
+   text-align-last: center;
   }
