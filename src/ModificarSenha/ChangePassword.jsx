@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './ChangePassword.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function ChangePassword() {
   const [formData, setFormData] = useState({
@@ -7,6 +9,8 @@ function ChangePassword() {
     newPassword: '',
     confirmNewPassword: ''
   });
+
+  const navigate = useNavigate(); // Hook de navegação
 
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
@@ -74,8 +78,15 @@ function ChangePassword() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleClose = () => {
+    navigate('/'); // Redireciona para a página inicial (ou outra página)
+  };
+
   return (
     <div className="modificar-container">
+      <span className="close" onClick={handleClose}>
+                x 
+            </span>
       <h4>Modificar Senha</h4>
       <form onSubmit={handleSubmit}>
         {errors.general && <p className="error-message">{errors.general}</p>}
