@@ -75,15 +75,14 @@
     font-size: 15px;
     margin: -10px 0 50px;
     color: #060556;
+   
 }
 
 .extra-options a {
     text-decoration: none;
 }
 
-.extra-options a:hover {
-    text-decoration: underline;
-}
+
 
 
 .login-container button {
