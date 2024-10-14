@@ -37,6 +37,8 @@ function Cadastro() {
       newErrors.password = "Senha deve possuir pelo menos uma letra maiúscula, um símbolo e um número.";
     }
 
+  
+    
      // Validação da confirmação de senha
      if (formData.confirmPassword !== formData.password) {
       newErrors.confirmPassword = "As senhas não coincidem.";
@@ -122,6 +124,7 @@ function Cadastro() {
             className={`form-input ${errors.password ? "error" : ""}`}
           />
           {errors.password && <p className="error-message">{errors.password}</p>}
+
           <FaLock className="icon"/>
         </div>
 
