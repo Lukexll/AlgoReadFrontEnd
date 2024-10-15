@@ -3,6 +3,7 @@ import { BsEnvelope } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import "./Cadastro.css";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function Cadastro() { 
   const [formData, setFormData] = useState({
