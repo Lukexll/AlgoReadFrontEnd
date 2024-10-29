@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './notificationBell.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
 
 const NotificationBell = () => {
   const [notificacoes, setNotificacoes] = useState([]);
@@ -34,7 +36,8 @@ const NotificationBell = () => {
   return (
     <div className="notification-bell-container">
       <div className="bell-icon" onClick={handleBellClick}>
-        <i className="fas fa-bell"></i>
+        {/* Substitui o ícone antigo pelo FontAwesomeIcon */}
+        <FontAwesomeIcon icon={faBell} />
         {novasNotificacoes > 0 && (
           <span className="notification-badge">{novasNotificacoes}</span>
         )}
