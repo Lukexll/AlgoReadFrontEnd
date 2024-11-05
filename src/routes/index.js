@@ -10,6 +10,7 @@ import BanRequest from '../pages/banRequest';
 import Login from '../pages/Login';
 import EsqueceuSenha from '../pages/Forgot';
 import Cadastro from '../pages/Cadastro'
+import EmailConfirmation from '../pages/emailConfirmation'
 
 
 
@@ -29,6 +30,7 @@ function RoutesApp() {
             <Route path='/report/:userId/:profileName' element = { <Report/> } />
             <Route path='/reportPage' element = { <ReportPage/> } />
             <Route path='/banRequest' element = { <BanRequest/> } />
+            <Route path='/emailConfirmation' element = { <EmailConfirmation/> } />
 
         </Routes>
     )
