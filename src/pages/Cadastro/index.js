@@ -69,7 +69,7 @@ function Cadastro() {
         setFormData({ email: "", password: "" });
         setErrors({});
         setServerError("");
-        navigate('/home')
+        navigate('/')
       } else {
         const data = await response.json();
         setServerError(data.message || "Erro ao criar a conta.");
@@ -148,7 +148,7 @@ function Cadastro() {
         <button type="submit">Cadastrar</button>
 
         <div className="login-redirect">
-                <span>Já tem uma conta? <Link to="/">Entrar</Link></span>
+                <span>Já tem uma conta? <Link to="/login">Entrar</Link></span>
                    
                 </div>
 

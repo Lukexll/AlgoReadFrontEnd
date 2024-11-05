@@ -1,6 +1,7 @@
 import './home.css';
 import { Link } from "react-router-dom";
-import NotificationBell from '../notificationBell';
+//import NotificationBell from '../notificationBell';
+
 
 function Home() {
   return (
@@ -11,9 +12,8 @@ function Home() {
           <ul className="nav-links">
             <li>Assinatura</li>
             <li>Escrever</li>
-            <li>Entrar</li>
+            <Link to="/login">Entrar</Link>
             <Link to="/reportsPage">Revisor</Link>
-            <NotificationBell/>
             <li>
               <button className="get-started-btn">Começar</button>
             </li>
