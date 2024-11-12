@@ -52,7 +52,7 @@ const Login = () => {
         setServerError(data.message || 'Erro ao fazer login.');
       }
     } catch (error) {
-      setServerError(error); //Verificar error
+      setServerError('Erro ao tentar se conectar ao servidor.');
     }
   };
 
