@@ -26,7 +26,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch('https://68.183.117.75:5152/loginaccount', {
+      const response = await fetch('https://api.algoread.com.br/loginaccount', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
